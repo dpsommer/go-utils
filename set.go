@@ -2,6 +2,11 @@ package goutils
 
 type Set[K comparable] map[K]struct{}
 
+// Add adds a key k to the set
+func (s Set[K]) Add(k K) {
+	s[k] = struct{}{}
+}
+
 // Update returns the set with all keys from others added
 func (s Set[K]) Update(others ...Set[K]) Set[K] {
 	for _, set := range others {
